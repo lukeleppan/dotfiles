@@ -65,6 +65,9 @@ update_dotfiles() {
 	echo -e "Adding dotman.sh"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/dotman.sh > /dev/null 2>&1
 
+	echo -e "Adding figlet font"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/figlet/3d.flf > /dev/null 2>&1
+
 
 	echo -e "\nCommitting...\n"
   /usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME commit -m "Update dotfiles" > /dev/null 2>&1
