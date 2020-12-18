@@ -34,7 +34,7 @@ initial_page() {
 }
 
 update_dotfiles() {
-	echo -e "Adding fish dotfile"
+	echo -e "\nAdding fish dotfile"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/fish/config.fish > /dev/null 2>&1
 	echo -e "Adding starship dotfile"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/starship.toml > /dev/null 2>&1
@@ -62,7 +62,7 @@ update_dotfiles() {
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/dotman.sh > /dev/null 2>&1
 
 
-	echo -e "Committing..."
+	echo -e "Committing...\n"
   /usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME commit -m "Update dotfiles" > /dev/null 2>&1
 }
 
