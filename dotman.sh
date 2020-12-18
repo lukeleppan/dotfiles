@@ -34,27 +34,36 @@ initial_page() {
 }
 
 update_dotfiles() {
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/fish/config.fish
-	
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/starship.toml
-	
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/awesome/rc.lua
+	echo -e "Adding fish dotfile"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/fish/config.fish > /dev/null 2>&1
+	echo -e "Adding starship dotfile"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/starship.toml > /dev/null 2>&1
 
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/nvim/init.vim
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/nvim/colors/onehalfdark.vim
+	echo -e "Adding awesome dotfile"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/awesome/rc.lua > /dev/null 2>&1
 
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/vifm/vifmrc
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/vifm/colors/Default.vifm
+	echo -e "Adding nvim dotfile"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/nvim/init.vim > /dev/null 2>&1
+	echo -e "Adding onehalfdark dotfile"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/nvim/colors/onehalfdark.vim > /dev/null 2>&1
 
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/htop/htoprc
-	
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/termite/config
-	
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/dotman.sh
+	echo -e "Adding vifm dotfile"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/vifm/vifmrc > /dev/null 2>&1
+	echo -e "Adding vifm color dotfile"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/vifm/colors/Default.vifm > /dev/null 2>&1
+
+	echo -e "Adding htop dotfile"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/htop/htoprc > /dev/null 2>&1
+
+	echo -e "Adding termite dotfile"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/termite/config > /dev/null 2>&1
+
+	echo -e "Adding dotman.sh"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/dotman.sh > /dev/null 2>&1
 
 
-
-  /usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME commit -m "Update dotfiles"
+	echo -e "Committing..."
+  /usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME commit -m "Update dotfiles" > /dev/null 2>&1
 }
 
 initial_page
