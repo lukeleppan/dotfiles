@@ -60,7 +60,7 @@ update_dotfiles() {
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/termite/config > /dev/null 2>&1
 	
 	echo -e "Adding README.md"
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/dotman.sh > /dev/null 2>&1
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/README.md > /dev/null 2>&1
 
 	echo -e "Adding dotman.sh"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/dotman.sh > /dev/null 2>&1
