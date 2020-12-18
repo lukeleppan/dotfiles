@@ -3,6 +3,8 @@
 # Fish General
 set fish_greeting
 set EDITOR "nvim"
+echo -e "\n"
+figlet -f ~/.config/figlet/3d.flf "archluke" | lolcat
 
 # ALIASES
 alias g='git'
