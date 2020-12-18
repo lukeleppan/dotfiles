@@ -32,7 +32,10 @@ initial_page() {
 }
 
 update_dotfiles() {
-	echo -e "\n\nAdding fish dotfile"
+	echo -e "\n\nPulling from Origin"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME pull > /dev/null 2>&1	
+
+	echo -e "\nAdding fish dotfile"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/fish/config.fish > /dev/null 2>&1
 	echo -e "Adding starship dotfile"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/starship.toml > /dev/null 2>&1
@@ -63,8 +66,11 @@ update_dotfiles() {
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/dotman.sh > /dev/null 2>&1
 
 
-	echo -e "Committing...\n"
+	echo -e "\nCommitting...\n"
   /usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME commit -m "Update dotfiles" > /dev/null 2>&1
+
+	echo -e "Pushing...\n"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME push origin master > /dev/null 2>&1 
 }
 
 initial_page
