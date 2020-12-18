@@ -15,26 +15,24 @@ logo() {
 initial_page() {
 	clear
 	logo
-	while :
-	do
-		echo -e "\n[1] Update Dotfiles"
-		echo -e "[q/Q] Quit Session"
+
+	echo -e "\n[1] Update Dotfiles"
+	echo -e "[q/Q] Quit Session"
+	
+	# Default choice is [1]
+	read -p "Select an option? [1]: " -n 1 -r USER_INPUT
 		
-		# Default choice is [1]
-		read -p "Select an option? [1]: " -n 1 -r USER_INPUT
-		
-		# See Parameter Expansion
-		USER_INPUT=${USER_INPUT:-1}
-		case $USER_INPUT in
-			[1]* ) update_dotfiles;;
-			[q/Q]* ) exit;;
-			* )     printf "\n%s\n\n" "Invalid Input, Try Again";;
-		esac	
-	done
+	# See Parameter Expansion
+	USER_INPUT=${USER_INPUT:-1}
+	case $USER_INPUT in
+		[1]* ) update_dotfiles;;
+		[q/Q]* ) exit;;
+		* )     printf "\n%s\n\n" "Invalid Input, Try Again";;	
+	esac	
 }
 
 update_dotfiles() {
-	echo -e "\nAdding fish dotfile"
+	echo -e "\n\nAdding fish dotfile"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/fish/config.fish > /dev/null 2>&1
 	echo -e "Adding starship dotfile"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/starship.toml > /dev/null 2>&1
