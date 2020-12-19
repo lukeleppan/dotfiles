@@ -43,10 +43,8 @@ update_dotfiles() {
 	echo -e "Adding awesome dotfile"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/awesome/rc.lua > /dev/null 2>&1
 
-	echo -e "Adding nvim dotfile"
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/nvim/init.vim > /dev/null 2>&1
-	echo -e "Adding onehalfdark dotfile"
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/nvim/colors/onehalfdark.vim > /dev/null 2>&1
+	echo -e "Adding nvim dotfiles"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/nvim/* > /dev/null 2>&1
 
 	echo -e "Adding vifm dotfile"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/vifm/vifmrc > /dev/null 2>&1
