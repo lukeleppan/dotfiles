@@ -1,49 +1,22 @@
-" --------------------- General Settings -----------------------
-set noshowmode
-syntax on
-colorscheme onehalfdark 
-
-set autoindent
-set ruler
-set relativenumber
-set number
+" General Settings
+source $HOME/.config/nvim/general/settings.vim
 
 
-" ------------------------- Plugins ----------------------------
-" Specify a directory for plugins
-call plug#begin('~/.config/plugged')
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
-Plug 'itchyny/lightline.vim'
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-Plug 'preservim/nerdtree'
-
-Plug 'sheerun/vim-polyglot'
-Plug 'joshdick/onedark.vim'
-
-Plug 'mattn/emmet-vim'
-
-Plug 'dense-analysis/ale'
-
-Plug 'airblade/vim-rooter'
-
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
-
-Plug 'mhinz/vim-startify'
-
-" Init Plugin System
-call plug#end()
-
-" ------------------- Lightline Settings -----------------------
-let g:lightline = {
-	\ 'colorscheme': 'onedark',
-	\ }
+" Mappings
+source $HOME/.config/nvim/keys/mappings.vim
 
 
-" ------------------- NERDTree Settings ------------------------
+" Plugins
+source $HOME/.config/nvim/vim-plug/plugins.vim
 
-map <C-n> :NERDTreeToggle<CR>
+
+" Plugin Configuration
+source $HOME/.config/nvim/plug-config/start-screen.vim
+source $HOME/.config/nvim/plug-config/nerdtree.vim
+source $HOME/.config/nvim/plug-config/airline.vim
+
+source $HOME/.config/nvim/themes/airline.vim
+
+
+" Dracula
+color dracula

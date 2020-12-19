@@ -1,5 +1,18 @@
--- If LuaRocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). If LuaRocks is not installed, do nothing.
+--
+--                           ██       ██         ██
+--                          ░██      ░██        ░██
+--   ██████   ██████  █████ ░██      ░██ ██   ██░██  ██  █████
+--  ░░░░░░██ ░░██░░█ ██░░░██░██████  ░██░██  ░██░██ ██  ██░░░██
+--   ███████  ░██ ░ ░██  ░░ ░██░░░██ ░██░██  ░██░████  ░███████
+--  ██░░░░██  ░██   ░██   ██░██  ░██ ░██░██  ░██░██░██ ░██░░░░
+-- ░░████████░███   ░░█████ ░██  ░██ ███░░██████░██░░██░░██████
+--  ░░░░░░░░ ░░░     ░░░░░  ░░   ░░ ░░░  ░░░░░░ ░░  ░░  ░░░░░░
+--
+-- Awesome Configuration
+--
+-- =============================================================================
+-- Preconfig
+-- =============================================================================
 pcall(require, "luarocks.loader")
 
 -- Standard awesome library
@@ -18,9 +31,12 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
+-- =============================================================================
+
+
+-- =============================================================================
+-- Error Handling
+-- =============================================================================
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
                      title = "Oops, there were errors during startup!",
@@ -41,9 +57,13 @@ do
         in_error = false
     end)
 end
--- }}}
+-- ==============================================================================
 
--- {{{ Variable definitions
+
+
+-- ==============================================================================
+-- Variable Definitions
+-- ==============================================================================
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
@@ -51,43 +71,23 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 terminal = "termite"
 editor = "nvim"
 editor_cmd = terminal .. " -e " .. editor
-
--- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    -- awful.layout.suit.floating,
     awful.layout.suit.tile,
-    -- awful.layout.suit.tile.left,
-    -- awful.layout.suit.tile.bottom,
-    -- awful.layout.suit.tile.top,
-    -- awful.layout.suit.fair,
-    -- awful.layout.suit.fair.horizontal,
-    -- awful.layout.suit.spiral,
-    -- awful.layout.suit.spiral.dwindle,
-    -- awful.layout.suit.max,
-    -- awful.layout.suit.max.fullscreen,
-    -- awful.layout.suit.magnifier,
-    -- awful.layout.suit.corner.nw,
-    -- awful.layout.suit.corner.ne,
-    -- awful.layout.suit.corner.sw,
-    -- awful.layout.suit.corner.se,
+    awful.layout.suit.fair,
+    awful.layout.suit.spiral,
 }
--- }}}
 
--- {{{ Menu
--- Menubar configuration
--- }}}
+-- =================================================================================
 
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
 
--- {{{ Wibar
+
+-- =================================================================================
+-- Wibar
+-- =================================================================================
+
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
@@ -199,26 +199,44 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 end)
--- }}}
+-- =================================================================================
 
--- {{{ Mouse bindings
+
+
+-- =================================================================================
+-- Mouse bindings
+-- =================================================================================
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
--- }}}
+-- =================================================================================
 
--- {{{ Key bindings
+
+
+
+-- =================================================================================
+-- Key bindings
+-- =================================================================================
 globalkeys = gears.table.join(
+    
+
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
+
+
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
+    
+
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
+    
+
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
+
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -226,15 +244,22 @@ globalkeys = gears.table.join(
         end,
         {description = "focus next by index", group = "client"}
     ),
+
+
     awful.key({ modkey,           }, "k",
         function ()
             awful.client.focus.byidx(-1)
         end,
         {description = "focus previous by index", group = "client"}
     ),
+
+
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 
+    
+
+    -- =============================================================================================
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
@@ -255,6 +280,9 @@ globalkeys = gears.table.join(
         end,
         {description = "go back", group = "client"}),
 
+    
+
+    -- =============================================================================================
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
