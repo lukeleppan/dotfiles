@@ -35,27 +35,26 @@ update_dotfiles() {
 	echo -e "\n\nPulling from Origin"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME pull > /dev/null 2>&1	
 
+
 	echo -e "\nAdding fish dotfile"
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/fish/config.fish > /dev/null 2>&1
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/fish/* > /dev/null 2>&1
 	echo -e "Adding starship dotfile"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/starship.toml > /dev/null 2>&1
 
 	echo -e "Adding awesome dotfile"
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/awesome/rc.lua > /dev/null 2>&1
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/awesome/* > /dev/null 2>&1
 
 	echo -e "Adding nvim dotfiles"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/nvim/* > /dev/null 2>&1
 
 	echo -e "Adding vifm dotfile"
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/vifm/vifmrc > /dev/null 2>&1
-	echo -e "Adding vifm color dotfile"
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/vifm/colors/Default.vifm > /dev/null 2>&1
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/vifm/* > /dev/null 2>&1
 
 	echo -e "Adding htop dotfile"
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/htop/htoprc > /dev/null 2>&1
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/htop/* > /dev/null 2>&1
 
 	echo -e "Adding termite dotfile"
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/termite/config > /dev/null 2>&1
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/termite/* > /dev/null 2>&1
 	
 	echo -e "Adding README.md"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/README.md > /dev/null 2>&1
@@ -64,7 +63,10 @@ update_dotfiles() {
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/dotman.sh > /dev/null 2>&1
 
 	echo -e "Adding figlet font"
-	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/figlet/3d.flf > /dev/null 2>&1
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/figlet/* > /dev/null 2>&1
+	
+	echo -e "Adding rofi dotfiles"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/rofi/* > /dev/null 2>&1
 
 
 	echo -e "\nCommitting...\n"

@@ -1,0 +1,13 @@
+rofi.sidebar-mode:  true
+rofi.hide-scrollbar: true
+rofi.kb-cancel: Escape,Control+bracketleft
+rofi.kb-mode-next: Alt+Right,Shift+Right,Control+Tab
+rofi.kb-mode-previous: Alt+Left,Shift+Left,Control+ISO_Left_Tab
+rofi.kb-row-select:
+rofi.modi: combi,drun,run,window,ssh
+rofi.combi-modi: window,drun
+rofi.show: combi
+/* rofi.theme: Arc-Dark.rasi */
+/* rofi.theme: onedark */
+/* rofi.theme: flat-orange */
+rofi.theme: flat-darkblue
