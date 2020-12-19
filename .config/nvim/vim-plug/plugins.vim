@@ -23,5 +23,7 @@ call plug#begin('~/.config/plugged')
   Plug 'dracula/vim'
 
   Plug 'mhinz/vim-startify'
+  
+  Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
 call plug#end()

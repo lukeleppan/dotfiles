@@ -32,17 +32,20 @@ initial_page() {
 }
 
 update_dotfiles() {
-	echo -e "\n\nPulling from Origin"
+	echo -e "\n\nPulling from Origin..."
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME pull > /dev/null 2>&1	
 
 
-	echo -e "\nAdding fish dotfile"
+	echo -e "\nAdding fish dotfiles"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/fish/* > /dev/null 2>&1
-	echo -e "Adding starship dotfile"
+	echo -e "Adding starship dotfiles"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/starship.toml > /dev/null 2>&1
 
-	echo -e "Adding awesome dotfile"
+	echo -e "Adding awesome dotfiles"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/awesome/* > /dev/null 2>&1
+	
+	echo -e "Adding ranger dotfiles"
+	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/ranger/* > /dev/null 2>&1
 
 	echo -e "Adding nvim dotfiles"
 	/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/nvim/* > /dev/null 2>&1
