@@ -26,14 +26,16 @@ local function factory(args)
         return
     end
 
-    local bat       = { widget = wibox.widget.textbox() }
-    local args      = args or {}
-    local timeout   = args.timeout or 30
-    local notify    = args.notify or "on"
-    local n_perc    = args.n_perc or { 5, 15 }
-    local batteries = args.batteries or (args.battery and {args.battery}) or {}
-    local ac        = args.ac or "AC0"
-    local settings  = args.settings or function() end
+    args              = args or {}
+
+    local bat         = { widget = args.widget or wibox.widget.textbox() }
+    local timeout     = args.timeout or 30
+    local notify      = args.notify or "on"
+    local full_notify = args.full_notify or notify
+    local n_perc      = args.n_perc or { 5, 15 }
+    local batteries   = args.batteries or (args.battery and {args.battery}) or {}
+    local ac          = args.ac or "AC0"
+    local settings    = args.settings or function() end
 
     function bat.get_batteries()
         helpers.line_callback("ls -1 " .. pspath, function(line)
@@ -135,7 +137,7 @@ local function factory(args)
         -- "Full", "Unknown" or "Charging". When the laptop is not plugged in,
         -- one or more of the batteries may be full, but only one battery
         -- discharging suffices to set global status to "Discharging".
-        bat_now.status = bat_now.n_status[1]
+        bat_now.status = bat_now.n_status[1] or "N/A"
         for _,status in ipairs(bat_now.n_status) do
             if status == "Discharging" or status == "Charging" then
                 bat_now.status = status
@@ -198,7 +200,7 @@ local function factory(args)
                     }).id
                 end
                 fullnotification = false
-            elseif bat_now.status == "Full" and not fullnotification then
+            elseif bat_now.status == "Full" and full_notify == "on" and not fullnotification then
                 bat.id = naughty.notify({
                     preset = bat_notification_charged_preset,
                     replaces_id = bat.id

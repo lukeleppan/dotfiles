@@ -26,4 +26,9 @@ call plug#begin('~/.config/plugged')
   
   Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
+  Plug 'justinmk/vim-sneak'
+
+  Plug 'liuchengxu/vim-which-key'
+  Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+
 call plug#end()
