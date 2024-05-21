@@ -1,0 +1,47 @@
+import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+shell = "/opt/homebrew/bin/fish"
+live_config_reload = true
+
+[window]
+dimensions = { columns = 0, lines = 0 }
+position = "None"
+padding = { x = 0, y = 0 }
+dynamic_padding = true
+decorations = "Buttonless"
+opacity = 0.9
+blur = true
+startup_mode = "Maximized"
+title = "Alacritty"
+dynamic_title = true
+option_as_alt = "Both"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+size = 14
+normal = { family = "FiraCode Nerd Font" }
+bold = { family = "FiraCode Nerd Font" }
+italic = { family = "FiraCode Nerd Font" }
+bold_italic = { family = "FiraCode Nerd Font" }
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+
+[terminal]
+osc52 = "CopyPaste"
+
+[mouse]
+hide_when_typing = false
+
+[[hints.enabled]]
+command = "open"
+hyperlinks = true
+post_processing = true
+mouse.enabled = true
+binding = { key = "U", mods = "Control|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
