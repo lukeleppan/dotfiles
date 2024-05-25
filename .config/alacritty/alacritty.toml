@@ -1,6 +1,9 @@
 import = ["~/.config/alacritty/catppuccin-mocha.toml"]
-shell = "/opt/homebrew/bin/fish"
+shell = "/opt/homebrew/bin/nu"
 live_config_reload = true
+
+[env]
+XDG_CONFIG_HOME = "/Users/lukeleppan/.config"
 
 [window]
 dimensions = { columns = 0, lines = 0 }
